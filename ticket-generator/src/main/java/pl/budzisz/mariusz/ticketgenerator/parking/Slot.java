@@ -39,10 +39,10 @@ public class Slot {
 
     @Override
     public String toString() {
-        return "{" +
+        return "\n{" +
             " number= '" + getNumber() + "' " +
             ", isOccupied= '" + getIsOccupied() + "' " +
-            "}";
+            "}\n";
     }
     
 }
