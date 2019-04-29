@@ -3,13 +3,13 @@ package pl.budzisz.mariusz.ticketgenerator;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 public class Slot {
-    private int number;
-    private boolean isOccupied;
+     String number;
+     boolean isOccupied;
 
     /**
      * @return the number
      */
-    public int getNumber() {
+    public String getNumber() {
         return number;
     }
 
@@ -30,10 +30,12 @@ public class Slot {
     /**
      * @param number the number to set
      */
-    public void setNumber(int number) {
+    public void setNumber(String number) {
         this.number = number;
     }
-    
+
+    public Slot() {
+    }
 
     @Override
     public String toString() {
