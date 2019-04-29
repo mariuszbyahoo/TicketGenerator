@@ -3,6 +3,9 @@ package pl.budzisz.mariusz.ticketgenerator.parking;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Parking {
 
     List<ArrayList> rows = new ArrayList<>(5);
