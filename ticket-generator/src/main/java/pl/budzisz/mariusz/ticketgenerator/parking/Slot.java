@@ -1,4 +1,4 @@
-package pl.budzisz.mariusz.ticketgenerator;
+package pl.budzisz.mariusz.ticketgenerator.parking;
 
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 

@@ -1,4 +1,4 @@
-package pl.budzisz.mariusz.ticketgenerator;
+package pl.budzisz.mariusz.ticketgenerator.parking;
 
 import java.util.ArrayList;
 import java.util.List;
