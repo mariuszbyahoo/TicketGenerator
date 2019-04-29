@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - TicketGenerator",
+            "request": "launch",
+            "mainClass": "pl.budzisz.mariusz.ticketgenerator.TicketGenerator",
+            "projectName": "ticket-generator"
+        }
+    ]
+}
