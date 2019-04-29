@@ -32,6 +32,7 @@ public class Row extends ArrayList {
     }
 
     public Row() {
+        fillCollumns(slotList);
     }
 
 

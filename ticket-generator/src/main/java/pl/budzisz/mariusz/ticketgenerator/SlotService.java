@@ -25,6 +25,7 @@ public class SlotService{
     }
 
     public SlotService() {
+        generateRows(rows);
     }
 
     @Override
