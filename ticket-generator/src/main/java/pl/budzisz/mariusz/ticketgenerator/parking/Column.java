@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 public class Column extends ArrayList {
     
 	int columnNumber = 0;
-        
+    
     List<Slot> slotList = new ArrayList<Slot>(5);
 
 
@@ -35,10 +35,10 @@ public class Column extends ArrayList {
 
     public void fillCollumns(){
         for(int j = 0; j < 5 ; j ++){
-            Slot newSlot = new Slot();
-        	this.slotList.add(newSlot);
-        	newSlot.setNum(j + 1);
-        	newSlot.setColumnNum(columnNumber);
+        	Slot slot = new Slot();
+        	this.slotList.add(slot);
+        	slot.setNum(j + 1);
+        	slot.setColumnNum(columnNumber);
         }
     }
 

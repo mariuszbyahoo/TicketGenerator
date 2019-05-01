@@ -13,6 +13,7 @@ public class ParkingController {
 
     @Autowired
     SlotService service;
+    
 	@Autowired
     Ticket ticket;
 	
@@ -23,9 +24,6 @@ public class ParkingController {
 	 public void setTicket(Ticket ticket) {
 			this.ticket = ticket;
 	}
-
-    
-
 
     @RequestMapping("/parkingInfo")
     @ResponseBody
