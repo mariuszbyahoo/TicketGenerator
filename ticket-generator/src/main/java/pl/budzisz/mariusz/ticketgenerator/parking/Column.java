@@ -38,6 +38,7 @@ public class Column extends ArrayList {
             Slot newSlot = new Slot();
         	this.slotList.add(newSlot);
         	newSlot.setNum(j + 1);
+        	newSlot.setColumnNum(columnNumber);
         }
     }
 

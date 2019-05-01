@@ -4,13 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import pl.budzisz.mariusz.ticketgenerator.parking.Parking;
 import pl.budzisz.mariusz.ticketgenerator.parking.Slot;
 
 @Scope("prototype")
 @Component
 public class Ticket {
 	
-	int number = 1;
+	int number = 0;
 	
 	@Autowired
 	Slot slot;

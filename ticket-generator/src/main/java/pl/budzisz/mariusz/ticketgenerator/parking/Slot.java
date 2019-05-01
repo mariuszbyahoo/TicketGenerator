@@ -7,9 +7,18 @@ import org.springframework.stereotype.Component;
 @Component
 public class Slot {
      int num = 0;
+     int columnNum = 0;
      String numName = "NO." + num;
      boolean isOccupied;
 
+     
+     public int getColumnNum() {
+    	 return columnNum;
+     }
+     
+     public void setColumnNum(int columnNum) {
+    	 this.columnNum = columnNum;
+     }
     /**
      * @return the number
      */
@@ -38,12 +47,10 @@ public class Slot {
     public Slot() {
     }
 
-    @Override
-    public String toString() {
-        return "\n{" +
-            " slot " + numName + " " +
-            ", isOccupied= '" + getIsOccupied() + "' " +
-            "}\n";
-    }
+	@Override
+	public String toString() {
+		return "Slot [num=" + num + ", columnNum=" + columnNum + ", numName=" + numName + ", isOccupied=" + isOccupied
+				+ "]";
+	}
     
 }
