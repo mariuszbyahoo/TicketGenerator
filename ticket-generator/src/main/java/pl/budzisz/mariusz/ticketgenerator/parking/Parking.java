@@ -9,26 +9,26 @@ import org.springframework.stereotype.Component;
 @Component
 public class Parking {
 
-    List<ArrayList> rows = new ArrayList<ArrayList>();
+    List<ArrayList> row = new ArrayList<ArrayList>();
 
     public List<ArrayList> getRows() {
-        return this.rows;
+        return this.row;
     }
 
-    public void setRows(List<ArrayList> rows) {
-        this.rows = rows;
+    public void setRow(List<ArrayList> row) {
+        this.row = row;
     }
 
     public void generateRows(List<ArrayList> rows){
         for(int i = 0; i < 5 ; i ++){
-            rows.add(new Row());
-            Row row = (Row) rows.get(i);
+            rows.add(new Column());
+            Column row = (Column) rows.get(i);
             row.setColumnNumber(i);
         }
     }
 
     public Parking() {
-        generateRows(rows);
+        generateRows(row);
         System.out.println("Wygenerowano wiersze");
     }
 
