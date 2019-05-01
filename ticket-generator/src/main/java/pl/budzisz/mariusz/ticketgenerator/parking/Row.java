@@ -3,8 +3,16 @@ package pl.budzisz.mariusz.ticketgenerator.parking;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
+@Scope("prototype")
+@Component
 public class Row extends ArrayList {
-    int columnNumber = 0;
+    
+	int columnNumber = 0;
+        
     List<Slot> slotList = new ArrayList<Slot>(5);
 
 
@@ -25,14 +33,16 @@ public class Row extends ArrayList {
     }
 
 
-    /*public void fillCollumns(List<Slot> slotList){
+    public void fillCollumns(){
         for(int j = 0; j < 5 ; j ++){
-            slotList.get(j).setNumber("Column = " + columnNumber + "/ " + j);;
+            Slot newSlot = new Slot();
+        	this.slotList.add(newSlot);
+        	newSlot.setNum(j + 1);
         }
-    }*/
+    }
 
     public Row() {
-        //fillCollumns(slotList);
+        fillCollumns();
     }
 
 

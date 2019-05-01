@@ -3,12 +3,13 @@ package pl.budzisz.mariusz.ticketgenerator.parking;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class Parking {
 
-    List<ArrayList> rows = new ArrayList<>(5);
+    List<ArrayList> rows = new ArrayList<ArrayList>();
 
     public List<ArrayList> getRows() {
         return this.rows;
@@ -20,15 +21,9 @@ public class Parking {
 
     public void generateRows(List<ArrayList> rows){
         for(int i = 0; i < 5 ; i ++){
-            ArrayList<Slot> column = new ArrayList<Slot>(5);
-            generateColumns(column);
-            rows.add(i, column);
-        }
-    }
-
-    public void generateColumns(List<Slot>columns){
-        for(int j = 0 ; j < 5 ; j ++){
-            columns.add(new Slot());
+            rows.add(new Row());
+            Row row = (Row) rows.get(i);
+            row.setColumnNumber(i);
         }
     }
 
@@ -40,7 +35,7 @@ public class Parking {
     @Override
     public String toString() {
         return "{Parking:\n" +
-            " rows= '" + getRows().get(0).toString() + 
+            " row of Columns= '" + getRows().get(0).toString() + 
             "\n" + getRows().get(1).toString() +
             "\n" + getRows().get(2).toString() +
             "\n" + getRows().get(3).toString() +

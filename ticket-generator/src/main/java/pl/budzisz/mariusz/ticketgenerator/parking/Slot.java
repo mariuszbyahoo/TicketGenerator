@@ -1,11 +1,12 @@
 package pl.budzisz.mariusz.ticketgenerator.parking;
 
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
 @Scope("prototype")
+@Component
 public class Slot {
-    int num = 0;
+     int num = 0;
      String number = "NO." + num;
      boolean isOccupied;
 
@@ -15,7 +16,11 @@ public class Slot {
     public String getNumber() {
         return number;
     }
-
+    
+    public void setNum(int num) {
+    	this.num = num;
+    	number = "NO." + num;
+    }
     /**
      * @return the isOccupied
      */
@@ -31,7 +36,6 @@ public class Slot {
     }
 
     public Slot() {
-        num++;
     }
 
     @Override

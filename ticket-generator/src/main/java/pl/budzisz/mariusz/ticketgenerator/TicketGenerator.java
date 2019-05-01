@@ -5,9 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 // Commit-test of a STS
 @SpringBootApplication
 public class TicketGenerator {
-
 	public static void main(String[] args) {
 		SpringApplication.run(TicketGenerator.class, args);
 	}
-
 }
