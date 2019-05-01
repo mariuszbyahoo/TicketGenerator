@@ -1,24 +1,23 @@
 package pl.budzisz.mariusz.ticketgenerator.ticket;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
 
-import pl.budzisz.mariusz.ticketgenerator.parking.Parking;
 import pl.budzisz.mariusz.ticketgenerator.parking.Slot;
 
-@Scope("prototype")
+@Scope(proxyMode = ScopedProxyMode.TARGET_CLASS, value = "request")
 @Component
 public class Ticket {
 	
-	int number = 0;
+	public static int number = 0;
 	
 	@Autowired
 	Slot slot;
-	
-	public void setNumber(int number) {
-		this.number = number;
-	}
 	
 	public void occupySlot(Slot slot) {
 		this.slot = slot;
@@ -26,12 +25,24 @@ public class Ticket {
 	}
 	
 	public Ticket() {
-		this.number ++;
+		number ++;
 	}
+	
+	@PostConstruct
+    public void init() {
+         System.out.println("start request");
+         System.out.println(Ticket.number);
+    }
+
+    @PreDestroy
+    public void onDestroy() {
+         System.out.println("ends request");
+         System.out.println(Ticket.number);
+    }
 
 	@Override
 	public String toString() {
-		return "Ticket [NO. " + number + ", Parking Lot =" + slot + "]";
+		return "Ticket [NO. " + Ticket.number + ", Parking Lot =" + slot + "]";
 	}
 	
 }
