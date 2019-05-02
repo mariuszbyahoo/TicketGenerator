@@ -17,8 +17,13 @@ Parking parking;
     }
     
     public void occupySlot() {
-    	Slot slot = (Slot) parking.getRows().get(0).get(0);
-    	System.out.println(slot.toString());
+    	
+    	parking.getRows().
+    	get(0).getSlotList().
+    	get(0).setOccupied(true);
+    	
+    	System.out.println(parking.getRows().
+    			get(0).getSlotList().
+    			get(0).toString());
     }
-
 }

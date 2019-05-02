@@ -1,30 +1,27 @@
 package pl.budzisz.mariusz.ticketgenerator.parking;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class Parking {
 
-    List<ArrayList> row = new ArrayList<ArrayList>();
+    List<Column> row = new ArrayList<Column>();
 
-    public List<ArrayList> getRows() {
+    public List<Column> getRows() {
         return this.row;
     }
 
-    public void setRow(List<ArrayList> row) {
+    public void setRow(List<Column> row) {
         this.row = row;
     }
 
-    public void generateRows(List<ArrayList> row){
+    public void generateRows(List<Column> row){
         for(int i = 0; i < 5 ; i ++){
             row.add(new Column());
-            Column column = (Column) row.get(i);
+            Column column = row.get(i);
             column.setColumnNumber(i);
                 for(int j = 0; j < 5 ; j ++){
                 	Slot slot = new Slot();

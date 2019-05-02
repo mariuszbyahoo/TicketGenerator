@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Scope("prototype")
 @Component
-public class Column extends ArrayList {
+public class Column {
     
 	int columnNumber = 0;
     

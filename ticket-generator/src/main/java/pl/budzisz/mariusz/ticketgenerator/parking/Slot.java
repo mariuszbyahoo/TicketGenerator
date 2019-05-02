@@ -49,7 +49,7 @@ public class Slot {
 
 	@Override
 	public String toString() {
-		return "Slot [Column NO. " + columnNum + ", Slot " + numName 
+		return "Slot [Column NO. " + columnNum + ", Slot " + numName + "Occupied? " + isOccupied 
 				+ "]";
 	}
     
