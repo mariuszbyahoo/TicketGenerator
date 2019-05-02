@@ -15,5 +15,10 @@ Parking parking;
     public String writeParkingInfo(){
         return parking.toString();
     }
+    
+    public void occupySlot() {
+    	Slot slot = (Slot) parking.getRows().get(0).get(0);
+    	System.out.println(slot.toString());
+    }
 
 }
