@@ -33,17 +33,9 @@ public class Column extends ArrayList {
     }
 
 
-    public void fillCollumns(){
-        for(int j = 0; j < 5 ; j ++){
-        	Slot slot = new Slot();
-        	this.slotList.add(slot);
-        	slot.setNum(j + 1);
-        	slot.setColumnNum(columnNumber);
-        }
-    }
+    
 
     public Column() {
-        fillCollumns();
     }
 
 

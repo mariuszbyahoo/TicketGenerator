@@ -21,11 +21,17 @@ public class Parking {
         this.row = row;
     }
 
-    public void generateRows(List<ArrayList> rows){
+    public void generateRows(List<ArrayList> row){
         for(int i = 0; i < 5 ; i ++){
-            rows.add(new Column());
-            Column row = (Column) rows.get(i);
-            row.setColumnNumber(i);
+            row.add(new Column());
+            Column column = (Column) row.get(i);
+            column.setColumnNumber(i);
+                for(int j = 0; j < 5 ; j ++){
+                	Slot slot = new Slot();
+                    column.slotList.add(slot);
+                    slot.setNum(j + 1);
+                    slot.setColumnNum(column.getColumnNumber());
+                }
         }
     }
 
