@@ -49,8 +49,11 @@ public class Slot {
 
 	@Override
 	public String toString() {
-		return "Slot [Column NO. " + columnNum + ", Slot " + numName + "Occupied? " + isOccupied 
-				+ "]";
+		if(isOccupied) {
+			return " OCCUPIED" + columnNum + " | " + numName;
+		}else {
+			return "FREE Column: " + columnNum + ", Slot " + numName + "]";
+		}
 	}
     
 }
