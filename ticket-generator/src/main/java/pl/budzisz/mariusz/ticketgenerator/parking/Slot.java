@@ -50,10 +50,9 @@ public class Slot {
 	@Override
 	public String toString() {
 		if(isOccupied) {
-			return " OCCUPIED" + columnNum + " | " + numName;
+			return "OCCUPIED " + columnNum + " | " + numName;
 		}else {
 			return "FREE Column: " + columnNum + ", Slot " + numName + "]";
 		}
 	}
-    
 }

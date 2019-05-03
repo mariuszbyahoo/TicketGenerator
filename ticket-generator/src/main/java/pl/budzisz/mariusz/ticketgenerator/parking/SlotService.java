@@ -16,14 +16,14 @@ Parking parking;
         return parking.toString();
     }
     
-    public void occupySlot() {
+    public void occupySlot(int columnNumber, int slotNumber) {
     	
     	parking.getRows().
-    	get(0).getSlotList().
-    	get(0).setOccupied(true);
+    	get(columnNumber).getSlotList().
+    	get(slotNumber).setOccupied(true);
     	
     	System.out.println(parking.getRows().
-    			get(0).getSlotList().
-    			get(0).toString());
+    			get(columnNumber).getSlotList().
+    			get(slotNumber).toString());
     }
 }

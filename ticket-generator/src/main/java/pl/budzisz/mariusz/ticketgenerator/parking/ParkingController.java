@@ -3,6 +3,7 @@ package pl.budzisz.mariusz.ticketgenerator.parking;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -33,8 +34,8 @@ public class ParkingController {
     
     @PutMapping("/getTicket")
     @ResponseBody
-    public String ticketInfo () {
-    	service.occupySlot();
+    public String ticketInfo (@RequestParam int columnNumber) {
+    	service.occupySlot(columnNumber, 0);
     	return String.format(ticket.toString());
     }
     
