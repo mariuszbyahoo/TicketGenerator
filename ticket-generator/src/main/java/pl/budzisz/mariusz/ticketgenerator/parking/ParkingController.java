@@ -34,8 +34,8 @@ public class ParkingController {
     
     @PutMapping("/getTicket")
     @ResponseBody
-    public String ticketInfo (@RequestParam int columnNumber) {
-    	service.occupySlot(columnNumber, 0);
+    public String ticketInfo (@RequestParam int columnNumber, int slotNumber) {
+    	service.occupySlot(columnNumber, slotNumber);
     	return String.format(ticket.toString());
     }
     
