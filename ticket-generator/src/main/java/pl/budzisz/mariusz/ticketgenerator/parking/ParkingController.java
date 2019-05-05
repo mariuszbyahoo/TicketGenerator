@@ -2,6 +2,9 @@ package pl.budzisz.mariusz.ticketgenerator.parking;
 
 import java.io.File;
 import java.io.IOException;
+
+import javax.json.JsonObject;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,8 +36,9 @@ public class ParkingController {
 
     @RequestMapping("/parkingInfo")
     @ResponseBody
-    public String parkingInfo (){
-        return String.format(service.writeParkingInfo());
+    public JsonObject parkingInfo (){
+        return service.writeParkingInfo();
+        		//String.format(service.writeParkingInfo());
     }
     
     @RequestMapping(path = "/parkingPdf", method = RequestMethod.GET)

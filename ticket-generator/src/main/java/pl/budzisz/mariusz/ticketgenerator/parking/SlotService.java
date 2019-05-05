@@ -2,6 +2,12 @@ package pl.budzisz.mariusz.ticketgenerator.parking;
 
 import java.io.File;
 import java.io.IOException;
+
+import javax.json.Json;
+import javax.json.JsonArrayBuilder;
+import javax.json.JsonObject;
+import javax.json.JsonObjectBuilder;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,10 +26,13 @@ public class SlotService{
 Parking parking;
 
 private String contentProt;
-private int i = 0;
+private JsonObject parkingObject;
+private JsonObject soldTicketsObject;
 
-    public String writeParkingInfo(){
-        return parking.toString();
+    public JsonObject writeParkingInfo(){
+    	prepareParkingData();
+        return parkingObject;
+        		//"Dane Json: \n" + parkingObject +"\n" + parking.toString();
     }
     
     public void occupySlot(int columnNumber, int slotNumber) {
@@ -62,5 +71,17 @@ private int i = 0;
     	document.add(p2);
     	document.close();
     	
+    }
+    
+    public void prepareParkingData() {
+    	for(int i = 0 ; i < parking.getRows().size(); i ++) {
+    		JsonObjectBuilder parkingBuilder = Json.createObjectBuilder();
+    		JsonObjectBuilder soldTicketsBuilder = Json.createObjectBuilder();
+    		
+    		parkingBuilder.add("Tytuł parkingBuidera",1);
+    		soldTicketsBuilder.add("Tytuł soldTicketsBuildera", 1);
+    		
+    		parkingObject = parkingBuilder.build();
+    	}
     }
 }
