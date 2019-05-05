@@ -14,7 +14,8 @@ import pl.budzisz.mariusz.ticketgenerator.ticket.Ticket;
 @RestController
 public class ParkingController {
 	
-	public static final String DEST = "docs/parkingFile.pdf"; 
+	private static int i = 1;
+	public static final String DEST = "docs/parkingFile"+i+".pdf"; 
 
     @Autowired
     SlotService service;
@@ -37,17 +38,25 @@ public class ParkingController {
     }
     
     @RequestMapping(path = "/parkingPdf", method = RequestMethod.GET)
-    public void writeFile() throws IOException{
+    public String writeFile() throws IOException{
     	File file = new File(DEST);
     	file.getParentFile().mkdirs();
     	service.createPdf(DEST);
+    	i++;
+    	return "Sprawdz folder docs";
     }
+    
+    /* Tutaj trzeba doczytać, jak mapować errory... Ten nie przejdzie kompilacji nawet...
+     * @RequestMapping("/error")
+    public String writeErrorInfo() {
+    	return String.format("No i znowu cholera wystąpił błąd\n");
+    }*/
     
     @PutMapping("/getTicket")
     @ResponseBody
     public String ticketInfo (@RequestParam int columnNumber, int slotNumber) {
     	service.occupySlot(columnNumber, slotNumber);
-    	return String.format(ticket.toString());
+    	return "Pobierz bilet z podajnika";//String.format(ticket.toString());
     }
-    
+	 
 }

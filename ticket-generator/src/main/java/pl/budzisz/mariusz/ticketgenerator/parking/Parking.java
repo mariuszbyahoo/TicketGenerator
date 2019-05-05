@@ -39,8 +39,8 @@ public class Parking {
 
     @Override
     public String toString() {
-        return "{Parking:\n" +
-            " row of Columns= '" + getRows().get(0).toString() + 
+        return "Parking:\n" +
+            " Kolumny na parkingu:\n '" + getRows().get(0).toString() + 
             "\n" + getRows().get(1).toString() +
             "\n" + getRows().get(2).toString() +
             "\n" + getRows().get(3).toString() +

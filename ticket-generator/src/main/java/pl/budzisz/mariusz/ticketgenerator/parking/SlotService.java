@@ -19,6 +19,9 @@ public class SlotService{
 @Autowired
 Parking parking;
 
+private String contentProt;
+private int i = 0;
+
     public String writeParkingInfo(){
         return parking.toString();
     }
@@ -42,10 +45,21 @@ Parking parking;
     	
     	PdfFont font = PdfFontFactory.createFont();
     	
-    	Text title = new Text("Tytul");
-    	Text author = new Text("Autor");
-    	Paragraph p = new Paragraph().add(title).add(" Napisane przez ").add(author);
-    	document.add(p);
+    	Text title = new Text("Oto nasz parking: ");
+    	try {
+    		for(int i = 0 ; i < parking.getRows().size(); i ++) {
+    			contentProt = contentProt + "\n" + parking.getRows().get(i).toString();
+    		}
+    	}catch(Exception ex) {
+    		System.out.println("\nA oto nasz stack trace:\n");
+    		ex.printStackTrace();
+    	}
+    	
+    	Text content = new Text(contentProt);
+    	Paragraph p1 = new Paragraph().add(title);
+    	Paragraph p2 = new Paragraph().add(content);
+    	document.add(p1);
+    	document.add(p2);
     	document.close();
     	
     }

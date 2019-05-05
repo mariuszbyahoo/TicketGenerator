@@ -41,10 +41,10 @@ public class Column {
 
     @Override
     public String toString() {
-        return "\n{" +
-            " columnNumber= '" + getColumnNumber() + " '" +
-            ", slotList= '" + getSlotList() + " '" +
-            "}\n";
+        return "\n" +
+            " Kolumna " + getColumnNumber() + "" +
+            ", miejsca Parkingowe= " + getSlotList() + " " +
+            "\n";
     }
 
 }
