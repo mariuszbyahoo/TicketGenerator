@@ -19,9 +19,7 @@ public class Slot {
      public void setColumnNum(int columnNum) {
     	 this.columnNum = columnNum;
      }
-    /**
-     * @return the number
-     */
+
     public String getNumName() {
         return numName;
     }
@@ -30,16 +28,11 @@ public class Slot {
     	this.num = num;
     	numName = "NO." + num;
     }
-    /**
-     * @return the isOccupied
-     */
+
     public boolean getIsOccupied() {
         return isOccupied;
     }
 
-    /**
-     * @param isOccupied the isOccupied to set
-     */
     public void setOccupied(boolean isOccupied) {
         this.isOccupied = isOccupied;
     }
