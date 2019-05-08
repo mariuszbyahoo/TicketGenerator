@@ -28,6 +28,7 @@ public class Parking {
                     column.slotList.add(slot);
                     slot.setNum(j + 1);
                     slot.setColumnNum(column.getColumnNumber());
+                    slot.setOccupied(SlotStatus.FREE);
                 }
         }
     }
