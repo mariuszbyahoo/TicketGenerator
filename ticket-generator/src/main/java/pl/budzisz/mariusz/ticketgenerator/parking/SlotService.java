@@ -4,9 +4,11 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.json.Json;
+import javax.json.JsonArray;
 import javax.json.JsonArrayBuilder;
 import javax.json.JsonObject;
 import javax.json.JsonObjectBuilder;
+import javax.json.JsonValue;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,13 +28,22 @@ public class SlotService{
 Parking parking;
 
 private String contentProt;
-private JsonObject slotObject;
-private JsonObject soldTicketsObject;
-String parkingLotDesc;
+private JsonArray column1;
+private JsonValue slotObject1;
+private JsonValue slotObject2;
+private JsonValue slotObject3;
+private JsonValue slotObject4;
+private JsonValue slotObject5;
+private JsonValue soldTicketsObject;
+String parkingLotDesc1;
+String parkingLotDesc2;
+String parkingLotDesc3;
+String parkingLotDesc4;
+String parkingLotDesc5;
 
-    public JsonObject writeParkingInfo(){
+    public JsonArray writeParkingInfo(){
     	prepareParkingData();
-        return slotObject;
+        return column1;
         		//"Dane Json: \n" + parkingObject +"\n" + parking.toString();
     }
     
@@ -75,14 +86,28 @@ String parkingLotDesc;
     }
     
     public void prepareParkingData() {
-    	for(int i = 0 ; i < parking.getRows().size(); i ++) {
     		JsonObjectBuilder slotBuilder = Json.createObjectBuilder();
-    		parkingLotDesc =  parking.row.get(0).slotList.get(0).getNumName() +" stan miejsca: "+ parking.row.get(0).slotList.get(0).getIsOccupied();
+    		JsonArrayBuilder columnBuilder = Json.createArrayBuilder();
+    		parkingLotDesc1 =  parking.row.get(0).slotList.get(0).getNumName() +" stan miejsca: "+ parking.row.get(0).slotList.get(0).getIsOccupied();
+    		parkingLotDesc2 =  parking.row.get(1).slotList.get(1).getNumName() +" stan miejsca: "+ parking.row.get(1).slotList.get(1).getIsOccupied();
+    		parkingLotDesc3 =  parking.row.get(2).slotList.get(2).getNumName() +" stan miejsca: "+ parking.row.get(2).slotList.get(2).getIsOccupied();
+    		parkingLotDesc4 =  parking.row.get(3).slotList.get(3).getNumName() +" stan miejsca: "+ parking.row.get(3).slotList.get(3).getIsOccupied();
+    		parkingLotDesc5 =  parking.row.get(4).slotList.get(4).getNumName() +" stan miejsca: "+ parking.row.get(4).slotList.get(4).getIsOccupied();
     		
-    		slotBuilder.add("Tytuł parkingBuidera",1);
+    		slotObject1 = slotBuilder.add("Lot", parkingLotDesc1).build();
+    		slotObject2 = slotBuilder.add("Lot", parkingLotDesc2).build();
+    		slotObject3 = slotBuilder.add("Lot", parkingLotDesc3).build();
+    		slotObject4 = slotBuilder.add("Lot", parkingLotDesc4).build();
+    		slotObject5 = slotBuilder.add("Lot", parkingLotDesc5).build();
+
+    		columnBuilder.add(slotObject1);
+    		columnBuilder.add(slotObject2);
+    		columnBuilder.add(slotObject3);
+    		columnBuilder.add(slotObject4);
+    		columnBuilder.add(slotObject5);
+    		column1 = columnBuilder.build();
     		
-    		slotObject = slotBuilder.add("Parking Lot", parkingLotDesc).add("val2", "a to jest druga wartość").build();
-    		// tu trzeba zrobić parking jako obiekt JSON i potem każda kolumna jako JSON i każde miejsce parkingowe jako JSON
-    	}
+    		System.out.println(slotObject1.toString() + " " + slotObject2.toString());
+
     }
 }

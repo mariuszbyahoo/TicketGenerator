@@ -3,6 +3,7 @@ package pl.budzisz.mariusz.ticketgenerator.parking;
 import java.io.File;
 import java.io.IOException;
 
+import javax.json.JsonArray;
 import javax.json.JsonObject;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +37,7 @@ public class ParkingController {
 
     @RequestMapping("/parkingInfo")
     @ResponseBody
-    public JsonObject parkingInfo (){
+    public JsonArray parkingInfo (){
         return service.writeParkingInfo();
         		//String.format(service.writeParkingInfo());
     }
