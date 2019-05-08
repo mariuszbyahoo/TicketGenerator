@@ -35,11 +35,6 @@ private JsonValue slotObject3;
 private JsonValue slotObject4;
 private JsonValue slotObject5;
 private JsonValue soldTicketsObject;
-String parkingLotDesc1;
-String parkingLotDesc2;
-String parkingLotDesc3;
-String parkingLotDesc4;
-String parkingLotDesc5;
 
     public JsonArray writeParkingInfo(){
     	prepareParkingData();
@@ -88,17 +83,13 @@ String parkingLotDesc5;
     public void prepareParkingData() {
     		JsonObjectBuilder slotBuilder = Json.createObjectBuilder();
     		JsonArrayBuilder columnBuilder = Json.createArrayBuilder();
-    		parkingLotDesc1 =  parking.row.get(0).slotList.get(0).getNumName() +" stan miejsca: "+ parking.row.get(0).slotList.get(0).getIsOccupied();
-    		parkingLotDesc2 =  parking.row.get(1).slotList.get(1).getNumName() +" stan miejsca: "+ parking.row.get(1).slotList.get(1).getIsOccupied();
-    		parkingLotDesc3 =  parking.row.get(2).slotList.get(2).getNumName() +" stan miejsca: "+ parking.row.get(2).slotList.get(2).getIsOccupied();
-    		parkingLotDesc4 =  parking.row.get(3).slotList.get(3).getNumName() +" stan miejsca: "+ parking.row.get(3).slotList.get(3).getIsOccupied();
-    		parkingLotDesc5 =  parking.row.get(4).slotList.get(4).getNumName() +" stan miejsca: "+ parking.row.get(4).slotList.get(4).getIsOccupied();
+
     		
-    		slotObject1 = slotBuilder.add("Lot", parkingLotDesc1).build();
-    		slotObject2 = slotBuilder.add("Lot", parkingLotDesc2).build();
-    		slotObject3 = slotBuilder.add("Lot", parkingLotDesc3).build();
-    		slotObject4 = slotBuilder.add("Lot", parkingLotDesc4).build();
-    		slotObject5 = slotBuilder.add("Lot", parkingLotDesc5).build();
+    		slotObject1 = slotBuilder.add("Column 1", prepareStringColumn(0)).build();
+    		slotObject2 = slotBuilder.add("Column 2", prepareStringColumn(1)).build();
+    		slotObject3 = slotBuilder.add("Column 3", prepareStringColumn(2)).build();
+    		slotObject4 = slotBuilder.add("Column 4", prepareStringColumn(3)).build();
+    		slotObject5 = slotBuilder.add("Column 5", prepareStringColumn(4)).build();
 
     		columnBuilder.add(slotObject1);
     		columnBuilder.add(slotObject2);
@@ -107,7 +98,16 @@ String parkingLotDesc5;
     		columnBuilder.add(slotObject5);
     		column1 = columnBuilder.build();
     		
-    		System.out.println(slotObject1.toString() + " " + slotObject2.toString());
+    		System.out.println(slotObject1.toString() + " ");
 
+    }
+    
+    private String prepareStringColumn(int columnIndex) {
+    	String desc =  parking.row.get(columnIndex).slotList.get(0).getNumName() +" stan miejsca: "+ parking.row.get(columnIndex).slotList.get(0).getIsOccupied()
+        		+" | "+parking.row.get(columnIndex).slotList.get(1).getNumName() +" stan miejsca: "+ parking.row.get(columnIndex).slotList.get(1).getIsOccupied()
+        		+" | "+parking.row.get(columnIndex).slotList.get(2).getNumName() +" stan miejsca: "+ parking.row.get(columnIndex).slotList.get(2).getIsOccupied()
+        		+" | "+parking.row.get(columnIndex).slotList.get(3).getNumName() +" stan miejsca: "+ parking.row.get(columnIndex).slotList.get(3).getIsOccupied()
+        		+" | "+parking.row.get(columnIndex).slotList.get(4).getNumName() +" stan miejsca: "+ parking.row.get(columnIndex).slotList.get(4).getIsOccupied();
+    	return desc;
     }
 }
