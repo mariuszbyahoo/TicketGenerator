@@ -19,8 +19,9 @@ import pl.budzisz.mariusz.ticketgenerator.ticket.Ticket;
 public class ParkingController {
 	
 	private static int i = 1;
-	public static final String DEST = "docs/parkingFile.pdf"; 
-	public static final String DEST2 = "docs/parkingTicket.pdf";
+	private static int j = 1;
+	public static String DEST;
+	public static String DEST2;
 
     @Autowired
     SlotService service;
@@ -45,6 +46,7 @@ public class ParkingController {
     
     @RequestMapping(path = "/parkingPdf", method = RequestMethod.GET)
     public String writeFile() throws IOException{
+    	DEST = "docs/parkingFile" + i +".pdf";
     	File file = new File(DEST);
     	file.getParentFile().mkdirs();
     	service.parkingInfoAsPdf(DEST);
@@ -57,10 +59,12 @@ public class ParkingController {
     @ResponseBody
     public String ticketInfo (@RequestParam int columnNumber, int slotNumber) {
     	try {
+    		DEST2 = "docs/parkingTicket" + j +".pdf";
     		File file = new File(DEST2);
         	file.getParentFile().mkdirs();
     		service.occupySlot(columnNumber, slotNumber);
     		service.ticketAsPdf(DEST2, service.parking.row.get(columnNumber).getSlotList().get(slotNumber));
+    		j ++;
     		return "Pobierz bilet z folderu docs";
     		
     	}catch(IOException e) {

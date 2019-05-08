@@ -82,9 +82,9 @@ private JsonValue soldTicketsObject;
     	
     	Text title = new Text("Oto nasz parking: ");
     	try {
-    		for(int i = 0 ; i < parking.getRows().size(); i ++) {
-    			contentProt = contentProt + "\n" + parking.getRows().get(i).toString();
-    		}
+    		contentProt = parking.getRows().get(0).toString() + "\n" + parking.getRows().get(1).toString()
+    				+"\n"+ parking.getRows().get(2).toString() + "\n" + parking.getRows().get(3).toString() 
+    				+ "\n" + parking.getRows().get(4).toString();
     	}catch(Exception ex) {
     		System.out.println("\nA oto nasz stack trace:\n");
     		ex.printStackTrace();
