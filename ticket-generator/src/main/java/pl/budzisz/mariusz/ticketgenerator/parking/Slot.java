@@ -9,7 +9,7 @@ public class Slot {
      int num = 0;
      int columnNum = 0;
      String numName = "NO." + num;
-     boolean isOccupied;
+     SlotStatus isOccupied;
 
      
      public int getColumnNum() {
@@ -29,11 +29,11 @@ public class Slot {
     	numName = "NO." + num;
     }
 
-    public boolean getIsOccupied() {
+    public SlotStatus getIsOccupied() {
         return isOccupied;
     }
 
-    public void setOccupied(boolean isOccupied) {
+    public void setOccupied(SlotStatus isOccupied) {
         this.isOccupied = isOccupied;
     }
 
@@ -42,9 +42,8 @@ public class Slot {
 
 	@Override
 	public String toString() {
-		if(isOccupied) {
+		if(isOccupied.equals(SlotStatus.OCCUPIED)) {
 			return "";
-			//return "Miejsce "+ numName + " |' OCCUPIED ' | "  ;
 		}else {
 			return "Miejsce " + numName + " |' FREE '| ";
 		}

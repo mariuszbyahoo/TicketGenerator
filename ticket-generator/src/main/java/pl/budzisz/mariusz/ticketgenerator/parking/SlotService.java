@@ -40,7 +40,7 @@ String parkingLotDesc;
     	
     	parking.getRows().
     	get(columnNumber).getSlotList().
-    	get(slotNumber).setOccupied(true);
+    	get(slotNumber).setOccupied(SlotStatus.OCCUPIED);
     	
     	System.out.println(parking.getRows().
     			get(columnNumber).getSlotList().

@@ -9,5 +9,5 @@ public enum SlotStatus {
 	SlotStatus(String desc) {
 		this.desc = desc;
 	}
-
+	
 }
