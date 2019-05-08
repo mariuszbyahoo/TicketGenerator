@@ -29,6 +29,10 @@ public class Ticket {
 		number ++;
 	}
 	
+	public Slot getSlot() {
+		return this.slot;
+	}
+	
 	@PostConstruct
     public void init() {
          System.out.println("start request");

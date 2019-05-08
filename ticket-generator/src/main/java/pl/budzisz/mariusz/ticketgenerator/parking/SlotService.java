@@ -21,6 +21,8 @@ import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Text;
 
+import pl.budzisz.mariusz.ticketgenerator.ticket.Ticket;
+
 @Service
 public class SlotService{
 
@@ -53,7 +55,24 @@ private JsonValue soldTicketsObject;
     			get(slotNumber).toString());
     }
     
-    public void createPdf(String dest) throws IOException{
+    public void ticketAsPdf(String dest, Slot slot) throws IOException{
+    	PdfDocument pdf = new PdfDocument(new PdfWriter(dest));
+    	
+    	Document document = new Document(pdf);
+    	
+    	PdfFont font = PdfFontFactory.createFont();
+    	
+    	Text title = new Text("Witaj na moim parkingu!");
+    	String desc = "Zapraszamy na miejsce parkingowe: " + slot.getNumName() + " W kolumnie numer: " + (slot.getColumnNum() + 1);
+    	
+    	Paragraph p1 = new Paragraph().add(title);
+    	Paragraph p2 = new Paragraph().add(desc);
+    	document.add(p1);
+    	document.add(p2);
+    	document.close();
+    }
+    
+    public void parkingInfoAsPdf(String dest) throws IOException{
     	
     	PdfDocument pdf = new PdfDocument(new PdfWriter(dest));
     	

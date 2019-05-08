@@ -43,7 +43,7 @@ public class Slot {
 	@Override
 	public String toString() {
 		if(isOccupied.equals(SlotStatus.OCCUPIED)) {
-			return "";
+			return " OCCUPIED ";
 		}else {
 			return "Miejsce " + numName + " |' FREE '| ";
 		}

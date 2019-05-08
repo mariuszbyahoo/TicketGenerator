@@ -42,7 +42,7 @@ public class Column {
     @Override
     public String toString() {
         return "\n" +
-            " Kolumna " + getColumnNumber() + "" +
+            " Kolumna " + (getColumnNumber()+1) + "" +
             ", miejsca Parkingowe= " + getSlotList() + " " +
             "\n";
     }
