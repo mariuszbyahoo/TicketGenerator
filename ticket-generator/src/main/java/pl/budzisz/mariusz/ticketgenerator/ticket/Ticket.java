@@ -9,6 +9,7 @@ import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
 
 import pl.budzisz.mariusz.ticketgenerator.parking.Slot;
+import pl.budzisz.mariusz.ticketgenerator.parking.SlotStatus;
 
 @Scope(proxyMode = ScopedProxyMode.TARGET_CLASS, value = "request")
 @Component
@@ -21,7 +22,7 @@ public class Ticket {
 	
 	public void occupySlot(Slot slot) {
 		this.slot = slot;
-		slot.setOccupied(true);
+		slot.setOccupied(SlotStatus.OCCUPIED);
 	}
 	
 	public Ticket() {
