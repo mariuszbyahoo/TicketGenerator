@@ -26,13 +26,13 @@ public class SlotService{
 Parking parking;
 
 private String contentProt;
-private JsonObject parkingObject;
+private JsonObject slotObject;
 private JsonObject soldTicketsObject;
 String parkingLotDesc;
 
     public JsonObject writeParkingInfo(){
     	prepareParkingData();
-        return parkingObject;
+        return slotObject;
         		//"Dane Json: \n" + parkingObject +"\n" + parking.toString();
     }
     
@@ -76,14 +76,12 @@ String parkingLotDesc;
     
     public void prepareParkingData() {
     	for(int i = 0 ; i < parking.getRows().size(); i ++) {
-    		JsonObjectBuilder parkingBuilder = Json.createObjectBuilder();
-    		JsonObjectBuilder soldTicketsBuilder = Json.createObjectBuilder();
+    		JsonObjectBuilder slotBuilder = Json.createObjectBuilder();
     		parkingLotDesc =  parking.row.get(0).slotList.get(0).getNumName() +" stan miejsca: "+ parking.row.get(0).slotList.get(0).getIsOccupied();
     		
-    		parkingBuilder.add("Tytuł parkingBuidera",1);
-    		soldTicketsBuilder.add("Tytuł soldTicketsBuildera", 1);
+    		slotBuilder.add("Tytuł parkingBuidera",1);
     		
-    		parkingObject = parkingBuilder.add("Parking Lot", parkingLotDesc).add("val2", "a to jest druga wartość").build();
+    		slotObject = slotBuilder.add("Parking Lot", parkingLotDesc).add("val2", "a to jest druga wartość").build();
     		// tu trzeba zrobić parking jako obiekt JSON i potem każda kolumna jako JSON i każde miejsce parkingowe jako JSON
     	}
     }
