@@ -72,5 +72,12 @@ public class ParkingController {
     		return "Error occured";
     	}
     }
+    
+    @PutMapping("/exit")
+    @ResponseBody
+    public String exit (@RequestParam int columnNumber, int slotNumber) {
+    	service.exitSlot(columnNumber, slotNumber);
+    	return "Slot nr. " + columnNumber + "/" + slotNumber + " has been exited.\n Have a nice day! :)";
+    }
 	 
 }

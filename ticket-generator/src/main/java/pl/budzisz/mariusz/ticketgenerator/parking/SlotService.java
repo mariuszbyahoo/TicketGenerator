@@ -55,6 +55,16 @@ private JsonValue soldTicketsObject;
     			get(slotNumber).toString());
     }
     
+    public void exitSlot(int columnNumber, int slotNumber) {
+    	parking.getRows().
+    	get(columnNumber).getSlotList().
+    	get(slotNumber).setOccupied(SlotStatus.FREE);
+    	
+    	System.out.println(parking.getRows().
+    			get(columnNumber).getSlotList().
+    			get(slotNumber).toString());
+    }
+    
     public void ticketAsPdf(String dest, Slot slot) throws IOException{
     	PdfDocument pdf = new PdfDocument(new PdfWriter(dest));
     	

@@ -18,7 +18,7 @@ public class Parking {
         this.row = row;
     }
 
-    public void generateRows(List<Column> row){
+    public void generateRow(List<Column> row){
         for(int i = 0; i < 5 ; i ++){
             row.add(new Column());
             Column column = row.get(i);
@@ -34,7 +34,7 @@ public class Parking {
     }
 
     public Parking() {
-        generateRows(row);
+        generateRow(row);
         System.out.println("Wygenerowano wiersze");
     }
 
