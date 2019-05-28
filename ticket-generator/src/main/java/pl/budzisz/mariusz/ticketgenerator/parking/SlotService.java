@@ -72,8 +72,8 @@ private JsonValue soldTicketsObject;
     	
     	PdfFont font = PdfFontFactory.createFont();
     	
-    	Text title = new Text("Witaj na moim parkingu!");
-    	String desc = "Zapraszamy na miejsce parkingowe: " + slot.getNumName() + " W kolumnie numer: " + (slot.getColumnNum() + 1);
+    	Text title = new Text("Welcome on my parking!");
+    	String desc = "Your parking lot: " + slot.getNumName() + " column number: " + (slot.getColumnNum() + 1);
     	
     	Paragraph p1 = new Paragraph().add(title);
     	Paragraph p2 = new Paragraph().add(desc);
@@ -90,13 +90,13 @@ private JsonValue soldTicketsObject;
     	
     	PdfFont font = PdfFontFactory.createFont();
     	
-    	Text title = new Text("Oto nasz parking: ");
+    	Text title = new Text("Theres my parking: ");
     	try {
     		contentProt = parking.getRows().get(0).toString() + "\n" + parking.getRows().get(1).toString()
     				+"\n"+ parking.getRows().get(2).toString() + "\n" + parking.getRows().get(3).toString() 
     				+ "\n" + parking.getRows().get(4).toString();
     	}catch(Exception ex) {
-    		System.out.println("\nA oto nasz stack trace:\n");
+    		System.out.println("\nTheres your stack trace:\n");
     		ex.printStackTrace();
     	}
     	

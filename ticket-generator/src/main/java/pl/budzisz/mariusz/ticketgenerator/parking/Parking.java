@@ -35,13 +35,12 @@ public class Parking {
 
     public Parking() {
         generateRow(row);
-        System.out.println("Wygenerowano wiersze");
     }
 
     @Override
     public String toString() {
         return 
-            " Kolumny na parkingu:\n " + getRows().get(0).toString() + 
+            " Columns on parking:\n " + getRows().get(0).toString() + 
             "\n" + getRows().get(1).toString() +
             "\n" + getRows().get(2).toString() +
             "\n" + getRows().get(3).toString() +

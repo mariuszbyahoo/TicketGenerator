@@ -51,7 +51,7 @@ public class ParkingController {
     	file.getParentFile().mkdirs();
     	service.parkingInfoAsPdf(DEST);
     	i++;
-    	return "Sprawdz folder docs";
+    	return "Check the docs folder";
     }
 
     
@@ -65,7 +65,7 @@ public class ParkingController {
     		service.occupySlot(columnNumber, slotNumber);
     		service.ticketAsPdf(DEST2, service.parking.row.get(columnNumber).getSlotList().get(slotNumber));
     		j ++;
-    		return "Pobierz bilet z folderu docs";
+    		return "Take a ticket (check the docs folder)";
     		
     	}catch(IOException e) {
     		e.printStackTrace();

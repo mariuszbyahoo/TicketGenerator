@@ -45,7 +45,7 @@ public class Slot {
 		if(isOccupied.equals(SlotStatus.OCCUPIED)) {
 			return " OCCUPIED ";
 		}else {
-			return "Miejsce " + numName + " |' FREE '| ";
+			return "Slot " + numName + " |' FREE '| ";
 		}
 	}
 }
