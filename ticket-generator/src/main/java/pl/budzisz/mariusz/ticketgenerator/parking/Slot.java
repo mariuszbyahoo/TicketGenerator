@@ -3,6 +3,11 @@ package pl.budzisz.mariusz.ticketgenerator.parking;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+/**
+ * "Prototype" - Scoped class representing an every parking lot, contains it own coordinates and occupation status. 
+ * @author mariu
+ *
+ */
 @Scope("prototype")
 @Component
 public class Slot {
