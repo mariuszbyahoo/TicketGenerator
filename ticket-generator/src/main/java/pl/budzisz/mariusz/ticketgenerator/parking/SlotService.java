@@ -50,24 +50,15 @@ private JsonValue soldTicketsObject;
     }
     
     public void occupySlot(int columnNumber, int slotNumber) {
-    	
     	parking.getRows().
     	get(columnNumber).getSlotList().
     	get(slotNumber).setOccupied(SlotStatus.OCCUPIED);
-    	
-    	System.out.println(parking.getRows().
-    			get(columnNumber).getSlotList().
-    			get(slotNumber).toString());
     }
     
     public void exitSlot(int columnNumber, int slotNumber) {
     	parking.getRows().
     	get(columnNumber).getSlotList().
     	get(slotNumber).setOccupied(SlotStatus.FREE);
-    	
-    	System.out.println(parking.getRows().
-    			get(columnNumber).getSlotList().
-    			get(slotNumber).toString());
     }
     
     public void ticketAsPdf(String dest, Slot slot) throws IOException{
@@ -117,7 +108,6 @@ private JsonValue soldTicketsObject;
     public void prepareParkingData() {
     		JsonObjectBuilder slotBuilder = Json.createObjectBuilder();
     		JsonArrayBuilder columnBuilder = Json.createArrayBuilder();
-
     		
     		slotObject1 = slotBuilder.add("Column 1", prepareStringColumn(0)).build();
     		slotObject2 = slotBuilder.add("Column 2", prepareStringColumn(1)).build();
@@ -131,9 +121,6 @@ private JsonValue soldTicketsObject;
     		columnBuilder.add(slotObject4);
     		columnBuilder.add(slotObject5);
     		column1 = columnBuilder.build();
-    		
-    		System.out.println(slotObject1.toString() + " ");
-
     }
     
     private String prepareStringColumn(int columnIndex) {
