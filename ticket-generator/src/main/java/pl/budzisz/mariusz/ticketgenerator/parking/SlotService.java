@@ -23,6 +23,12 @@ import com.itextpdf.layout.element.Text;
 
 import pl.budzisz.mariusz.ticketgenerator.ticket.Ticket;
 
+/**
+ * Class containing all of the application's logic; from the operations invoked on the slots, through a generating the PDF files, 
+ * till the JSON output generation
+ * @author mariu
+ *
+ */
 @Service
 public class SlotService{
 
@@ -41,7 +47,6 @@ private JsonValue soldTicketsObject;
     public JsonArray writeParkingInfo(){
     	prepareParkingData();
         return column1;
-        		//"Dane Json: \n" + parkingObject +"\n" + parking.toString();
     }
     
     public void occupySlot(int columnNumber, int slotNumber) {
