@@ -7,6 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+/**
+ * "Prototype" - Scoped class representing every column of Parking Lots, contains it own position in the row and an ArrayList of Slots of course.
+ * @author mariu
+ *
+ */
 @Scope("prototype")
 @Component
 public class Column {
