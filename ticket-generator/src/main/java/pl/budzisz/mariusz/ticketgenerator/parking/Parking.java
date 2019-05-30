@@ -5,6 +5,11 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
+/**
+ * Class representing a first layer of data; contains one ArrayList "row" which contains Columns.
+ * @author mariu
+ *
+ */
 @Component
 public class Parking {
 
@@ -18,6 +23,10 @@ public class Parking {
         this.row = row;
     }
 
+    /**
+     * This method generates every one of the columns, and fills it in with an empty Slots.
+     * @param row
+     */
     public void generateRow(List<Column> row){
         for(int i = 0; i < 5 ; i ++){
             row.add(new Column());
@@ -33,6 +42,9 @@ public class Parking {
         }
     }
 
+    /**
+     * public constructor which automatically invokes a "generateRow()" method.
+     */
     public Parking() {
         generateRow(row);
     }
